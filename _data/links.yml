@@ -1,6 +1,6 @@
 # blog page sections
-- name: category1
-  href: '/category1/'
+- name: diary
+  href: '/diary/'
 
 - name: category2
   href: '/category2/'
