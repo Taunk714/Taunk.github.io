@@ -1,48 +1,35 @@
-<article class="post">
-	<header class="post-header home">
-		<div class="post-title">分类 - <span id='category-name'></span></div>
-	</header>
+<!-- categories.html -->
 
-	<div class="post-content">
-		{%- if site.posts.size > 0 -%}
-		<ul class="post-list">
-			{%- for post in site.posts -%}
-			<li class="post-list-item post-category-{{post.categories}}">
-				<!-- {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%} -->
-				{%- assign date_format = "%Y/%m/%d" -%}
-				<span class="post-date">{{ post.date | date: date_format }}</span>
-				<a class="post-link" href="{{ post.url | relative_url }}">
-					{{ post.title | escape }}
-				</a>
-				{%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
-			</li>
-		  	{%- endfor -%}
-		</ul>
-	  	{%- endif -%}
-	</div>
-</article>
+{% assign category = page.url | remove:'/' %} <!-- category - переменная из адреса сайта -->
+    <header>
+        <h1 class="cat-header" style="text-align: center;">{{category}}</h1>
+    </header>
 
-<script src="/public/js/jquery-3.4.1.slim.min.js"></script>
-<script>
-	function removeCategory() {
-		if (window.location.hash) {
-			let hash = window.location.hash.substring(1);
-			$('#category-name').text(hash.substring(0, 1).toUpperCase() + hash.substring(1));
-			let category_class = '.post-category-' + hash;
-			let items = $('.post-list-item').each((i, e) => {
-				if (!$(e).hasClass('post-category-' + hash)) {
-					$(e).hide();
-				} else {
-					$(e).show();
-				}
-			});
-		}
-	}
-	$(window).on('hashchange', () => {
-		removeCategory();
-	});
-	$(document).ready(() => {
-		removeCategory();	
-	})
-	
-</script>
+    <style>
+        .cat-header:after {
+            background: #2ebaae;
+            content: '';
+            display: block;
+            height: 2px;
+            margin: 0.75em auto 0 auto;
+            position: relative;
+            width: 4em;
+            }
+    </style>
+
+
+<section>
+    <ul class="posts">
+    	{% for post in site.categories.[category] %}
+    	<li>
+    		<article>
+    			<header>
+    				<h3><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h3>
+    					<time class="published" datetime="2015-10-20">{{post.date | date: "%d %b %Y %R"}}</time>
+    			</header>
+    			<a href="{{post.url | relative_url}}" class="image"><img src="{{site.baseurl}}/images/{{ post.icon }}.svg"/></a>
+    		</article>		
+    	</li>
+    	{% endfor %}
+    </ul>
+</section>

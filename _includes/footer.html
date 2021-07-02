@@ -1,32 +1,12 @@
-<footer class="site-footer h-card">
-  <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
-  <div class="wrapper">
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col one-half">
-      <h2 class="footer-heading">{{ site.title | escape }}</h2>
-        <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- endif -%}
-            </li>
-            {%- if site.email -%}
-            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-            {%- endif -%}
-        </ul>
-      </div>
-
-      <div class="footer-col one-half">
-        <p>{{- site.description | escape -}}</p>
-      </div>
-
-      <div class="social-links">
-        {%- include social.html -%}
-      </div>
-    </div>
-
-  </div>
-
-</footer>
+            <!-- Footer -->
+              <section id="footer">
+                <ul class="icons">
+                  <li><a href="mailto:{{site.author.email}}" class="fa-envelope"><span class="label">Email</span></a></li>
+                  <li><a href="https://www.linkedin.com/in/vika-kapitonenko-32347b130/" class="fa-linkedin-square"><span class="label">LinkedIn</span></a></li>
+                  <li><a href="https://vk.com/{{site.author.vk_id}}" class="fa-vk"><span class="label">VK</span></a></li>
+                  <li><a href="https://github.com/{{site.author.github_username}}" class="fa-github"><span class="label">GitHub</span></a></li>
+                  <li><a href="https://telegram.me/{{site.author.telegram_name}}" class="fa-paper-plane"><span class="label">Telegram</span></a></li>                  
+                </ul>
+                <p class="copyright">&copy; Kapitonenko. Design: <a href="http://html5up.net">HTML5 UP</a>. Work on <a href="https://jekyllrb.com">Jekyll</a>.</p>
