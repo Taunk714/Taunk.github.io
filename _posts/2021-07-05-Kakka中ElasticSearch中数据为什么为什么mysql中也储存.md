@@ -1,9 +1,16 @@
 ---
 layout: post
-title: Kakka中ElasticSearch中数据为什么mysql中也储存
+title: Kakka中ES的数据为什么mysql中也储存
 category: kakka
 icon: www
 keywords: kakka
 image: 1.jpg
 preview: 1
 ---
+> 这实在是个很愚蠢的问题，如果去问别人的话别人会觉得匪夷所思，怎么会问出这样的问题。但我觉得我未来还会有这样犯傻的时候，记录一下
+
+ES做搜索模块参考了别人的社区项目，把mysql中的post复制了一套到es中，突然就产生了这样的问题。其实主要还是初学es，不了解es才产生这样愚蠢的问题（当然在写这篇post的时候也还没有仔细学ES）
+
+目前的理解是，es在项目中是对内容做分词索引，所以搜索很快。但在实际情况中，除了搜索，还需要很多其他功能。比如查看某人的post，查看自己的post，显示某一类的post，这些都是要通过mysql更为方便的。
+
+写完这段以后更加怀疑自己怎么会产生这样的疑问，匪夷所思……像个傻子`(*^▽^*)`
