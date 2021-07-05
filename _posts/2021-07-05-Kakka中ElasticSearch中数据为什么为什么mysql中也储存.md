@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 2021-07-05-Kakka中ElasticSearch中数据为什么为什么mysql中也储存
-category: algorithm
+title: Kakka中ElasticSearch中数据为什么mysql中也储存
+category: kakka
 icon: www
-keywords: algorithm
+keywords: kakka
 image: 1.jpg
 preview: 1
 ---
