@@ -1,0 +1,77 @@
+---
+title: Ubuntu20.04LTS装机doc
+tags: OS, Uuntu, 装机
+category: /Installation
+renderNumberedHeading: true
+grammar_cjkRuby: true
+---
+[toc]
+# ubuntu20.04系统安装
+# 搜狗输入法安装
+1. 下载，注意下载正确版本，下面的安装文档可能不适用于双拼版本：https://pinyin.sogou.com/linux/?r=pinyin
+2. 跟着安装文档：https://pinyin.sogou.com/linux/help.php
+# Chrome
+1. 下载chrome：https://www.google.com/chrome/
+2.  打开terminal，进入chrome安装包.deb文件的目录下
+```bash
+cd 替换为对应目录
+```
+3.  安装文件(替换对应文件名)
+```bash
+sudo dpkg -i google-chrome-xxxx.deb
+```
+# Spotify
+* 方法1：从Ubuntu Software商店下载
+* 方法2：使用snap.打开terminal， 输入`snap install spotify`
+* 方法3：使用apt-get
+	* 打开terminal，配置debian repository：
+	```bash
+	curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+	```
+
+	* 下载安装`sudo apt-get update && sudo apt-get install spotify-client`
+
+# Java& IntelliJ
+## 安装Java
+1. 更新软件包索引：`sudo apt update`
+2. 安装OpenJDK：
+	1. OpenJDK11：`sudo apt install openjdk-11-jdk`
+	2. OpenJDK8: `sudo apt install openjdk-8-jdk` 
+3. 验证安装成功`java -version`
+4. 如果安装多个版本，可以选择修改默认版本：`sudo update-alternatives --config java`
+5. 配置环境
+	1. 找到安装目录`sudo update-alternatives --config java`, 复制路径(不要复制/bin/java)
+	2. 打开环境文件`sudo nano /etc/environment`,添加`JAVA_HOME=path/to/java`
+	3. 使修改生效`source /etc/environment`
+	4. 验证`echo $JAVA_HOME`
+## 安装intellij
+1. 下载：https://www.jetbrains.com/idea/download/#section=linux
+2. 打开terminal到文件目录，解压` tar -zxvf path/to/file.tar.gz`
+3. 进入解压后的文件夹，进入bin目录，运行`./idea.sh`
+# Go
+## 下载go
+1. 下载Go：https://go.dev/doc/install
+2. 将下载的文件解压到/usr/local`sudo tar -zxvf goxxxxx.linux-amd64.tar.gz -C /usr/local`
+3. 配置环境
+	1. 打开环境文件`sudo nano /etc/environment`，在PATH末尾双引号前添加`:/usr/local/go/bin`
+	2. `source /etc/environment`
+	3. 测试`go version`
+## 下载GoLand
+1. 下载:https://www.jetbrains.com/go/download/#section=linux
+2. 解压`tar -zxvf goland-2021.3.2.tar.gz`
+3. 运行：
+	1. 进入bin目录
+	2. 运行`./goland.sh`
+# git
+1. 安装git：`sudo apt-get install git`
+2. 为你的电脑设置git名称
+	1. 打开terminal，输入`git config --global user.name "Your nickname"`
+	2. check`git config --global user.name`
+3. 设置commit的email
+	1. `git config --global user.email "your@email.com"`
+	2. check`git config --global user.email`
+4. 配置ssh key
+	1. 生成 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+	2. 添加 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+	3. 然后就可以用ssh来clone和pull、push啦
