@@ -75,3 +75,8 @@ sudo dpkg -i google-chrome-xxxx.deb
 	1. 生成 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 	2. 添加 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 	3. 然后就可以用ssh来clone和pull、push啦
+
+# sublime text
+# Docker
+# MySQL
+# Postgre
