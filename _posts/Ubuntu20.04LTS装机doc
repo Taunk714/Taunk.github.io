@@ -63,6 +63,9 @@ sudo dpkg -i google-chrome-xxxx.deb
 3. 运行：
 	1. 进入bin目录
 	2. 运行`./goland.sh`
+## 多版本
+https://go.dev/doc/manage-install
+
 # git
 1. 安装git：`sudo apt-get install git`
 2. 为你的电脑设置git名称
