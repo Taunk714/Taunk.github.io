@@ -38,6 +38,7 @@ Shadowsocks 2.8.2
         "method":"chacha20"  # 根据情况调整，
 }
 ```
+PS. 本人在这里曾遇到过报错，当时装的是3.0.0版本，提示JSONDecodeOnject缺少message字段，最终解决方式是改成了shadowsocks 2.8.2版本
 
 # 运行代理
 ```
@@ -62,3 +63,4 @@ sslocal -c /path/to/shadowsocks.json  # 修改成config文件的路径
 Exec=env http_proxy=htsocks5://127.0.0.1:1080 https_proxy=socks5://127.0.0.1:1080 /usr/share/discord/Discord --proxy-server="socks5://127.0.0.1:1080"
 ```
 注意中间的`/usr/share/discord/Discord`是执行的文件，也就是最开始`Exec`行的值
+hint：可以尝试先单独运行exec对应语句确保正确性。
